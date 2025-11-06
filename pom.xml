@@ -1,0 +1,249 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.openmrs.content</groupId>
+    <artifactId>ugandaemrcorepack</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>UgandaEMR Core Package</name>
+    <description>The core package of UgandaEMR metadata</description>
+    <developers>
+        <developer>
+            <name>Lubwama Samuel</name>
+            <organization>METS Programme</organization>
+            <organizationUrl>https://mets.or.ug</organizationUrl>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git@github.com:METS-Programme/openmrs-content-ugandaemrcorepack.git</connection>
+        <developerConnection>scm:git:git@github.com:METS-Programme/openmrs-content-ugandaemrcorepack.git</developerConnection>
+        <url>https://github.com/METS-Programme/openmrs-content-ugandaemrcorepack.git</url>
+    </scm>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <configuration.dir>${project.basedir}/configuration</configuration.dir>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openmrs.maven.plugins</groupId>
+                <artifactId>openmrs-packager-maven-plugin</artifactId>
+                <version>1.9.0-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <id>validate-content-package</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>validate-content-package</goal>
+                        </goals>
+                        <configuration>
+                            <sourceFile>${project.basedir}/content.properties</sourceFile>
+                        </configuration>
+                    </execution>
+                    <!-- Commented out for now
+                    <execution>
+                        <id>validate-configurations</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>validate-configurations</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDir>${configuration.dir}/backend_configuration</sourceDir>
+                        </configuration>
+                    </execution>
+                    -->
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.7.1</version>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>${project.basedir}/assembly.xml</descriptor>
+                            </descriptors>
+                            <!-- Setting appendAssemblyId to false ensures that the assembly ID
+                            is not appended to the final name of the assembled artifact -->
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <finalName>${project.artifactId}-${project.version}</finalName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <preparationGoals>clean install</preparationGoals>
+                    <goals>deploy</goals>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}</directory>
+                                    <includes>
+                                        <include>content.properties</include>
+                                    </includes>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Spotless plugin -->
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+                <version>2.27.2</version>
+                <configuration>
+                    <java>
+                        <licenseHeader>
+                            <file>${project.basedir}/license-header.txt</file>
+                        </licenseHeader>
+                        <eclipse>
+                            <file>${project.basedir}/OpenMRSFormatter.xml</file>
+                        </eclipse>
+                        <removeUnusedImports/>
+                        <importOrder>
+                            <order>javax,java</order>
+                        </importOrder>
+                    </java>
+                    <formats>
+                        <format>
+                            <includes>
+                                <include>**/*.xml</include>
+                            </includes>
+                            <licenseHeader>
+                                <file>${project.basedir}/license-header.txt</file>
+                                <delimiter>^(?!&lt;\?xml)</delimiter>
+                            </licenseHeader>
+                        </format>
+                    </formats>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>spotless-apply</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>apply</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <!-- OpenMRS release artifacts -->
+        <repository>
+            <id>openmrs-repo-releases</id>
+            <name>OpenMRS Releases (Nexus)</name>
+            <url>https://mavenrepo.openmrs.org/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <!-- OpenMRS snapshot artifacts -->
+        <repository>
+            <id>openmrs-repo-snapshots</id>
+            <name>OpenMRS Snapshots (Nexus)</name>
+            <url>https://mavenrepo.openmrs.org/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+
+        <!-- Maven Central (optional: Maven includes this by default) -->
+        <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo1.maven.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <!-- Plugin releases from OpenMRS Nexus public group -->
+        <pluginRepository>
+            <id>openmrs-repo-plugins</id>
+            <name>OpenMRS Plugin Releases (Nexus)</name>
+            <url>https://mavenrepo.openmrs.org/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+
+        <!-- Plugin snapshots -->
+        <pluginRepository>
+            <id>openmrs-repo-plugin-snapshots</id>
+            <name>OpenMRS Plugin Snapshots (Nexus)</name>
+            <url>https://mavenrepo.openmrs.org/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>openmrs-repo-modules</id>
+            <name>OpenMRS Modules</name>
+            <url>https://openmrs.jfrog.io/artifactory/modules/</url>
+        </repository>
+        <snapshotRepository>
+            <id>openmrs-repo-snapshots</id>
+            <name>OpenMRS Snapshots</name>
+            <url>https://openmrs.jfrog.io/openmrs/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
