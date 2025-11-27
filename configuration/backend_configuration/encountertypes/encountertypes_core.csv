@@ -58,4 +58,4 @@ dbe038cd-cad5-439d-a761-a6d6d680219c,,Medication Order,The encounter for orderin
 a4870f6d-ea06-4bbe-b775-bcbfb0816dbf,,Procedure Results,Encounter type for processing procedure results,,,
 b75fc5be-83a6-4771-afae-87d1b68af4f7,,HIV Self Testing Encounter,Encounter type for to record clients accessing HIV Self-Test kits at Health facility and community distribution points,,,
 3849c43c-f14d-40ab-80d7-670cf251e525,,HTS Contact Tracing Encounter,Encounter to record all clients eligible for index testing and SNS,,,
-d211f5a7-b0b7-4021-8224-72c58866600e,,Early Infant Diagnosis (EID) Request,,,,
+d211f5a7-b0b7-4021-8224-72c58866600e,,Early Infant Diagnosis (EID) Request,The encounter type where EIR Lab requests are made,,,
