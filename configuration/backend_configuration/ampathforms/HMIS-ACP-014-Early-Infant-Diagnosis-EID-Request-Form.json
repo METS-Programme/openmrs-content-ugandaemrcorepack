@@ -1,7 +1,7 @@
 {
   "name": "HMIS ACP 014: Early Infant Diagnosis (EID) Request Form",
   "processor": "EncounterFormProcessor",
-  "encounterType": "3ca75ce7-8cbe-4970-8fe4-697bc2ce7d8f",
+  "encounterType": "d211f5a7-b0b7-4021-8224-72c58866600e",
   "uuid": "84eb332d-e977-41e2-a081-03f6f875b323",
   "description": "This form is used to carry out tests on an exposed infant",
   "version": "5.0.2",
@@ -32,8 +32,8 @@
                     "conceptMappings": []
                   },
                   {
-                    "concept": "161422AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    "label": "HB - Electrophoresis (SCD)",
+                    "concept": "907e11ae-5d80-4ee5-8167-42417b8bc4c9",
+                    "label": "Sickle Cell Test  (HB - electrophoresis)",
                     "conceptMappings": []
                   }
                 ],
@@ -277,7 +277,7 @@
             },
             {
               "type": "obs",
-              "required": "true",
+              "required": "false",
               "questionOptions": {
                 "rendering": "radio",
                 "concept": "443dd826-9234-4066-b68a-13fa3b768276",
@@ -363,7 +363,7 @@
                 }
               },
               "id": "mothersHTSNo",
-              "label": "Mother’s HTS No."
+              "label": "Motherâ€™s HTS No."
             },
             {
               "type": "obs",
@@ -376,7 +376,7 @@
                 }
               },
               "id": "mothersArtNumber",
-              "label": "Mother’s ART No."
+              "label": "Motherâ€™s ART No."
             },
             {
               "type": "obs",
