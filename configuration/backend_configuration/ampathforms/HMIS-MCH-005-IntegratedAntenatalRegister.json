@@ -1,6 +1,6 @@
 {
   "name": "HMIS 005 Integrated Antenatal Register",
-  "version": "4.1.4",
+  "version": "5.0.8",
   "description": "Entry form for patients enrolled for ANC services",
   "encounterType": "044daI6d-f80e-48fe-aba9-037f241905Pe",
   "encounter": "ANC - Encounter",

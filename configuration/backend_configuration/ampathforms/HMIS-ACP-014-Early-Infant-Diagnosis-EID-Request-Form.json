@@ -4,7 +4,7 @@
   "encounterType": "d211f5a7-b0b7-4021-8224-72c58866600e",
   "uuid": "84eb332d-e977-41e2-a081-03f6f875b323",
   "description": "This form is used to carry out tests on an exposed infant",
-  "version": "5.0.2",
+  "version": "5.0.8",
   "published": true,
   "retired": false,
   "pages": [
@@ -363,7 +363,7 @@
                 }
               },
               "id": "mothersHTSNo",
-              "label": "Motherâ€™s HTS No."
+              "label": "Mother\u00e2\u20ac\u2122s HTS No."
             },
             {
               "type": "obs",
@@ -376,7 +376,7 @@
                 }
               },
               "id": "mothersArtNumber",
-              "label": "Motherâ€™s ART No."
+              "label": "Mother\u00e2\u20ac\u2122s ART No."
             },
             {
               "type": "obs",

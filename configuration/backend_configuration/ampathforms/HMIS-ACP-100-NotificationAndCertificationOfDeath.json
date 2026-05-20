@@ -1,6 +1,6 @@
 {
   "name": "HMIS 100: Notification and Certification of Cause of Death",
-  "version": "4.1.0",
+  "version": "5.0.8",
   "description": "Notification and Certification of Death",
   "encounterType": "e75c856a-9e91-4ffb-bf43-1b0450b4ff8c",
   "encounter": "DEATH AND CERTIFICATION",

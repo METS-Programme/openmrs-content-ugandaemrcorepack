@@ -1,6 +1,6 @@
 {
   "name": "HMIS MCH 006: Integrated Maternity Register",
-  "version": "4.1.0",
+  "version": "5.0.8",
   "description": "Admission into a clinic for a pregnant woman to give birth",
   "encounterType": "a9f11592-22e7-45fc-904d-dfe24cb1fc67",
   "encounter": "Maternity - Encounter",
@@ -447,7 +447,7 @@
                   },
                   {
                     "concept": "3ea38a22-33c7-4790-ba76-340b50122a14",
-                    "label": "CTX √ - Mother initiated on and given a refill on this visit",
+                    "label": "CTX \u221a - Mother initiated on and given a refill on this visit",
                     "conceptMappings": []
                   },
                   {

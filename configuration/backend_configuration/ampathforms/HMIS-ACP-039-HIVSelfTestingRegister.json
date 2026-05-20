@@ -1,6 +1,6 @@
 {
   "name": "HMIS ACP 039: HIV-SELF TEST (HIVST) Register",
-  "version": "4.1.0",
+  "version": "5.0.8",
   "description": "Records clients accessing HIV Self-Test kits at Health facility and community distribution points",
   "encounter": "HIV Self Testing Encounter",
   "encounterType": "b75fc5be-83a6-4771-afae-87d1b68af4f7",
