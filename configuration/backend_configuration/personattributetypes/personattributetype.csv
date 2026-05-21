@@ -1,4 +1,4 @@
-Uuid,Void/Retire,Name,Description,Format,Foreign uuid,Searchable,_order:1000,
+Uuid,Void/Retire,Name,Description,Format,Foreign uuid,Searchable,_order:1000
 8d871386-c2cc-11de-8d13-0010c6dffd0f,false,Race,Group of persons related by common descent or heredity,java.lang.String,,false
 8d8718c2-c2cc-11de-8d13-0010c6dffd0f,false,Birthplace,Location of persons birth,java.lang.String,,false
 8d871afc-c2cc-11de-8d13-0010c6dffd0f,false,Citizenship,Country of which this person is a member,java.lang.String,,false
@@ -23,5 +23,3 @@ b0868a16-4f8e-43da-abfc-6338c9d8f56a,false,Occupation,Occupation,java.lang.Strin
 dec484be-1c43-416a-9ad0-18bd9ef28929,false,Natioinality,The Nationality of the patient,org.openmrs.Concept,,true
 5ecfd59d-5988-4aa3-84f8-8b43599fc67c,false,Email Address,Email Address,java.lang.String,,false
 ec6e8300-38e8-4c95-8e57-27c9cdfba104,false,Education Level,Person Education Level,org.openmrs.Concept,,true
-
-
