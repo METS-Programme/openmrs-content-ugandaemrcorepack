@@ -1,0 +1,4 @@
+Uuid,Void/Retire,Entity name,Name,Description,Min occurs,Max occurs,Datatype classname,Datatype config,Preferred handler classname,Handler config,_order:1000
+57ea0cbb-064f-4d09-8cf4-e8228700491c,,Visit,Punctuality,,0,1,org.openmrs.customdatatype.datatype.ConceptDatatype,d81d4698-e78c-420d-aac5-cb1f606fb32e,,,
+fbc0702d-b4c9-4968-be63-af8ad3ad6239,,Visit,Patient Type,"If the patient will be paying or receives services for free, expects a uuid",0,1,org.openmrs.customdatatype.datatype.FreeTextDatatype,,,,
+c0c579b0-8e59-401d-8a4a-976a0b183519,,Visit,Visit Queue Number,The visit queue number used to identify patients on the queue screen,0,1,org.openmrs.customdatatype.datatype.FreeTextDatatype,,,,
